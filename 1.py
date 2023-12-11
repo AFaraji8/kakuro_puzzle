@@ -301,8 +301,10 @@ for i in range (rowsize):
 
 
 for state in d:
+
     z0=d[state][0]
     z1=d[state][1]
+
     if z0!=-100:
         domin=[]
         t=tedad[state][0]
@@ -324,51 +326,7 @@ for state in d:
 
 
 
-
-
-
-for i in range (rowsize):
-    for j in range(colsize):
-        x=b[i][j]
-        if x is not None:
-            p1=x[0]
-            p2=x[1]
-            pp1=find_subsets_with_sum_and_n_elements(range(1,10),d.get(p1)[0],tedad.get(p1)[0])
-            pp2=find_subsets_with_sum_and_n_elements(range(1,10),d.get(p2)[1],tedad.get(p2)[1])
-            f1=flatten_lists(pp1)
-            f2=flatten_lists(pp2)
-            f=list(f1& f2)
-            domainofpuzzle[(i,j)]=f
-
-
-
-
-for state in d:
-    z0=d[state][0]
-    z1=d[state][1]
-    if z0!=-100:
-        domin=[]
-        t=tedad[state][0]
-        for i in range(1,t+1):
-            x=(state[0],state[1]+i)
-            domin.append(x)
-        update_domain_for_sum(domainofpuzzle, domin, z0)
-
-
-
-
-    if z1!=-100:
-        domin=[]
-        t=tedad[state][1]
-        for i in range(1,t+1):
-            x=(state[0]+i,state[1])
-            domin.append(x)
-        update_domain_for_sum(domainofpuzzle, domin, z1)
-
-
-
-dd=d.copy()
-for s in range(2):
+for s in range(5):
     for i in range(rowsize):
         for j in range(colsize):
             x=b[i][j]
@@ -419,7 +377,7 @@ for row in kakuro_puzzle:
     print("")
 
 
-
+print("\n\n")
 
 
 qq=kakuro_puzzle.copy()
@@ -436,19 +394,6 @@ for row in qq:
     for x in row:
         print(str(x).ljust(9),end="\t|")
     print("")
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -607,48 +552,7 @@ for state in d:
 
 
 
-for i in range (rowsize):
-    for j in range(colsize):
-        x=b[i][j]
-        if x is not None:
-            p1=x[0]
-            p2=x[1]
-            pp1=find_subsets_with_sum_and_n_elements(range(1,10),d.get(p1)[0],tedad.get(p1)[0])
-            pp2=find_subsets_with_sum_and_n_elements(range(1,10),d.get(p2)[1],tedad.get(p2)[1])
-            f1=flatten_lists(pp1)
-            f2=flatten_lists(pp2)
-            f=list(f1& f2)
-            domainofpuzzlee[(i,j)]=f
-
-
-
-
-for state in d:
-    z0=d[state][0]
-    z1=d[state][1]
-    if z0!=-100:
-        domin=[]
-        t=tedad[state][0]
-        for i in range(1,t+1):
-            x=(state[0],state[1]+i)
-            domin.append(x)
-        update_domain_for_sum_b(domainofpuzzlee, domin, z0)
-
-
-
-
-    if z1!=-100:
-        domin=[]
-        t=tedad[state][1]
-        for i in range(1,t+1):
-            x=(state[0]+i,state[1])
-            domin.append(x)
-        update_domain_for_sum_b(domainofpuzzlee, domin, z1)
-
-
-
-dd=d.copy()
-for s in range(2):
+for s in range(5):
     for i in range(rowsize):
         for j in range(colsize):
             x=b[i][j]
